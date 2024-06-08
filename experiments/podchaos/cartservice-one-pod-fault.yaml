@@ -1,0 +1,15 @@
+kind: PodChaos
+apiVersion: chaos-mesh.org/v1alpha1
+metadata:
+  namespace: default
+  name: cartservice-one-pod-fault
+spec:
+  selector:
+    namespaces:
+      - default
+    labelSelectors:
+      app: cartservice
+  mode: fixed
+  value: '1'
+  action: pod-failure
+  duration: 5m
